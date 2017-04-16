@@ -2,9 +2,17 @@
     
     @mixin clearfix;
     
+    &--t-padding {
+        padding-top: 80px;
+    }
+    
     &--gutters {
         /** negative margin to match padding-right of 65px so we don't have to target last column **/
         margin-right: -65px;
+    }
+    
+    &--gutters-small {
+        margin-right: -45px;
     }
     
     &--gutters-large {
@@ -13,6 +21,10 @@
     
     &--gutters > div {
         padding-right: 65px;
+    }
+    
+    &--gutters-small > div {
+        padding-right: 45px;
     }
     
     &--gutters-large > div {
@@ -52,6 +64,18 @@
             width: 63%;
         }
         
+    }
+    
+    /**  Begin equal height rules **/
+    &--equal-height-at-medium {
+        @mixin atMedium {
+            display: flex;
+        }
+        
+        & > div { /** targeting all divs in row--equal-height-at-medium **/
+            float: none;
+            display: flex;
+        }
     }
     
 }

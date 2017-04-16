@@ -555,6 +555,19 @@ a {
   max-width: 976px;
 }
 
+.wrapper--no-padding-until-medium {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (min-width: 800px) {
+
+  .wrapper--no-padding-until-medium {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
 /** remove padding for inner wrapper of image  **/
 
 .wrapper .wrapper {
@@ -586,14 +599,32 @@ a {
   }
 }
 
+.page-section--no-b-padding-until-medium {
+  padding-bottom: 0;
+}
+
+@media (min-width: 800px) {
+
+  .page-section--no-b-padding-until-medium {
+    padding-bottom: 4.5rem;
+  }
+}
+
 .page-section--blue {
   background-color: #2f5772;
   color: #FFF;
 }
 
 .page-section--testimonials {
-  background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
-  background-size: cover;
+  background-color: #e0e6ef;
+}
+
+@media (min-width: 800px) {
+
+  .page-section--testimonials {
+    background: url('/assets/images/testimonials-bg.jpg') top center no-repeat;
+    background-size: cover;
+  }
 }
 
 .headline {
@@ -656,8 +687,16 @@ a {
   display: table;
 }
 
+.row--t-padding {
+  padding-top: 80px;
+}
+
 .row--gutters {/** negative margin to match padding-right of 65px so we don't have to target last column **/
   margin-right: -65px;
+}
+
+.row--gutters-small {
+  margin-right: -45px;
 }
 
 .row--gutters-large {
@@ -666,6 +705,10 @@ a {
 
 .row--gutters > div {
   padding-right: 65px;
+}
+
+.row--gutters-small > div {
+  padding-right: 45px;
 }
 
 .row--gutters-large > div {
@@ -704,6 +747,24 @@ a {
   .row__medium-8--smaller {
     width: 63%;
   }
+}
+
+/**  Begin equal height rules **/
+
+@media (min-width: 800px) {
+
+  .row--equal-height-at-medium {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.row--equal-height-at-medium > div {/** targeting all divs in row--equal-height-at-medium **/
+  float: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .generic-content-container p {
@@ -808,11 +869,22 @@ a {
 
 .testimonial {
     background-color: rgba(255,255,255,.8);
-    padding: 0 1.8125rem 1px 1.8125rem;
+    padding: 0 18px 1px 18px; /** 1px b-padding helps push b-margin of <p> **/
+    margin-bottom: 98px;
     
 }
 
-/** 1px b-padding helps push b-margin of <p> **/
+@media (min-width: 800px) {
+
+  .testimonial {
+    margin-bottom: 0;
+    padding: 0 1.8125rem 1px 1.8125rem;
+  }
+}
+
+.testimonial--last {
+  margin-bottom: 0;
+}
 
 .testimonial__photo {
   border-radius: 80px;

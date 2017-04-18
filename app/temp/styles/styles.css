@@ -1062,3 +1062,25 @@ a {
     }
 
 /** we use 3 brackets here sprite-0f9283b3.svg because the sprite variable will contain a forward slash which we don't want to escape **/
+
+.site-footer {
+    background-color: #2f5772;
+    color: #FFF;
+    padding: .5rem 0;
+    text-align: center;
+}
+
+.site-footer__text {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 200;
+}
+
+@media (min-width: 800px) {
+
+  .site-footer__text {
+    display: inline;
+    margin-bottom: 0;
+    margin-right: 1.4rem;
+  }
+}

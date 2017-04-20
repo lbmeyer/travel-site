@@ -18,6 +18,10 @@ gulp.task('watch', function(){
     watch('./app/assets/styles/**/*.css', function(){
        gulp.start('cssInject'); 
     });
+	
+	watch('./app/assets/scripts/**/*.js', function(){
+		gulp.start('scriptsRefresh');	  
+	});
     
 });
 
@@ -25,4 +29,9 @@ gulp.task('watch', function(){
 gulp.task('cssInject', ['styles'], function(){
    return gulp.src('./app/temp/styles/styles.css')
         .pipe(browserSync.stream());
+});
+
+//we want browserSync to reload page AFTER webpack bundled file has been generated. So scriptsRefresh task won't run until after scripts task (found in /gulp/tasks/scripts.js) has run (a dependency)
+gulp.task('scriptsRefresh', ['scripts'], function(){
+	browserSync.reload();
 });

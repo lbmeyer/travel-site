@@ -1,5 +1,6 @@
 //finding absolute path since Webpack v2.3.1 required it instead of relative path
 const path = require('path');
+//process.traceDeprecation = true;
 
 module.exports = {
 	entry: {
@@ -24,4 +25,5 @@ module.exports = {
 			}
 		]
 	}
+	 
 }

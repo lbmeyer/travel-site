@@ -98,7 +98,8 @@
     }
     
     /**  Begin equal height rules **/
-    &--equal-height-at-medium {
+	/** Note that we add .flexbox for modernizr plugin. If visitor's browser supports flexbox, we use this css. If not, modernizer will use float based layout **/
+    .flexbox &--equal-height-at-medium {
         @mixin atMedium {
             display: flex;
         }
@@ -109,7 +110,7 @@
         }
     }
     
-    &--equal-height-at-large {
+    .flexbox &--equal-height-at-large {
         @mixin atLarge {
             display: flex;
         }

@@ -4,6 +4,7 @@ import smoothScroll from 'jquery-smooth-scroll';
 
 class StickyHeader {
 	constructor() {
+		this.lazyImages = $(".lazyload");
 		this.siteHeader = $(".site-header");
 		this.headerTriggerElement = $(".large-hero__title");
 		this.createHeaderWaypoint();
@@ -11,7 +12,14 @@ class StickyHeader {
 		this.headerLinks = $(".primary-nav a");
 		this.createPageSectionWaypoints();
 		this.addSmoothScrolling();
+		this.refreshWaypoints(); 
 	}
+	
+	refreshWaypoints() {
+		this.lazyImages.on("load", function() {
+			Waypoint.refreshAll();
+		}); 
+	} // Waypoint object exists in browser's global window scope, hence Waypoint.refreshAll() applies globally (don't need this method in RevealOnScroll.js)
 	
 	addSmoothScrolling() {
 		this.headerLinks.smoothScroll();
@@ -20,7 +28,6 @@ class StickyHeader {
 	createHeaderWaypoint() {
 		//save this to that so we can reference instance of StickyHeader class in new Waypoint object
 		var that = this;
-		console.log(this);
 		new Waypoint({
 			// waypoints is expecting a javascript native DOM element here (headerTriggerElementis currently a jquery object). So we can just add [0] to end because the first item in a jquery array like object is always a pointer to the native DOM element
 			element: this.headerTriggerElement[0],
